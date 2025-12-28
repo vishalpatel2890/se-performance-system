@@ -17,20 +17,14 @@ An AI-native performance management system for Solution Engineering teams. Built
    cd se-performance-system
    ```
 
-2. **Create required directories** (gitignored for your data)
-   ```bash
-   mkdir -p data/transcripts data/calendar data/salesforce
-   mkdir -p outputs/reports
-   ```
-
-3. **Run the setup wizard**
+2. **Run the setup wizard**
    ```bash
    claude
    /setup
    ```
-   This will prompt you for your name and team name, and configure the system.
+   This creates required directories, prompts for your name and team name, and validates configuration.
 
-4. **Add your first SE**
+3. **Add your first SE**
    ```bash
    /add-se sarah-chen
    ```
@@ -56,18 +50,14 @@ se-performance-system/
 ├── config/
 │   ├── competencies/     # Rating frameworks
 │   ├── templates/        # Document templates
-│   ├── integrations/     # Gong, Calendar configs
 │   └── settings.yaml     # Global settings
 ├── team/
 │   ├── _template/        # Template for new SEs
 │   └── {se-name}/        # Individual SE folders
 ├── data/
-│   ├── transcripts/      # Call transcripts
-│   ├── calendar/         # Calendar exports
-│   └── salesforce/       # Deal data
-├── outputs/
-│   └── reports/          # Generated reports
-└── scripts/              # Integration scripts
+│   └── transcripts/      # Call transcripts (manual import)
+└── outputs/
+    └── reports/          # Generated reports
 ```
 
 ## Competency Framework
@@ -98,24 +88,13 @@ se-performance-system/
 | 3 | CC | Conscious Competence |
 | 4 | UC | Unconscious Competence |
 
-## Integrations
+## Google Calendar (MCP)
 
-### Gong (Transcript Sync)
-Set environment variables:
-```bash
-export GONG_ACCESS_TOKEN="your-token"
-export GONG_API_KEY="your-key"
-```
+The system integrates with Google Calendar via MCP (Model Context Protocol) to:
+- Auto-detect upcoming 1:1 meetings when running `/prep-1on1`
+- Match calendar attendees to SE profiles
 
-### Google Calendar
-Set environment variables:
-```bash
-export CALENDAR_ACCESS_TOKEN="your-token"
-export CALENDAR_CREDENTIALS_FILE="path/to/credentials.json"
-```
-
-### Salesforce
-Manual CSV export (API integration not yet implemented).
+Run `/setup-calendar` to configure, or set it up during `/setup`.
 
 ## Philosophy
 
@@ -127,7 +106,7 @@ Manual CSV export (API integration not yet implemented).
 
 ## License
 
-MIT (planned open source release)
+MIT
 
 ## Contributing
 

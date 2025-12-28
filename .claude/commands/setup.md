@@ -20,7 +20,19 @@ Run this command to configure your SE Performance Management System for first us
 
 When this command is run, follow these steps exactly:
 
-### Step 1: Read Current State
+### Step 1: Create Required Directories
+
+First, ensure all required directories exist (they are gitignored, so new users won't have them):
+
+```bash
+mkdir -p data/transcripts data/calendar data/salesforce
+mkdir -p outputs/reports
+mkdir -p team
+```
+
+Display nothing if successful. Only display an error if directory creation fails.
+
+### Step 2: Read Current State
 
 Read `config/settings.yaml` and check the following fields:
 - `setup_complete` - Is setup already done?
@@ -28,7 +40,7 @@ Read `config/settings.yaml` and check the following fields:
 - `manager_name` - Current manager name (if any)
 - `team_name` - Current team name (if any)
 
-### Step 2: Handle Different States
+### Step 3: Handle Different States
 
 **If \****`setup_in_progress`**\*\* is true (partial setup detected):**
 
@@ -75,7 +87,7 @@ This wizard will help you configure the system for first use. I'll ask for your 
 Let's get started!
 ```
 
-### Step 3: Collect Manager Name
+### Step 4: Collect Manager Name
 
 Set `setup_in_progress: true` in settings.yaml (to enable resume if interrupted).
 
@@ -88,7 +100,7 @@ Wait for user input. After receiving the name:
 - Store the value temporarily
 - Display confirmation: `Got it! I'll set the manager name to: "{name}"`
 
-### Step 4: Collect Team Name
+### Step 5: Collect Team Name
 
 Prompt:
 ```
@@ -99,7 +111,7 @@ Wait for user input. After receiving the team name:
 - Store the value temporarily
 - Display confirmation: `Great! Team name will be: "{team_name}"`
 
-### Step 5: Validate Configuration Files
+### Step 6: Validate Configuration Files
 
 Display:
 ```
@@ -114,7 +126,7 @@ There are two types of validation results:
 
 ---
 
-**5.1 YAML Syntax Validation (ERRORS - blocking):**
+**6.1 YAML Syntax Validation (ERRORS - blocking):**
 
 For each config file, attempt to parse the YAML. If parsing fails, report with line number:
 
@@ -137,7 +149,7 @@ Stop here - do not proceed until YAML syntax errors are fixed.
 
 ---
 
-**5.2 Required Fields Validation (ERRORS - blocking):**
+**6.2 Required Fields Validation (ERRORS - blocking):**
 
 For each competency file, validate the following required structure:
 
@@ -174,7 +186,7 @@ Stop here - do not proceed until required field errors are fixed.
 
 ---
 
-**5.3 Type Validation for settings.yaml (ERRORS - blocking):**
+**6.3 Type Validation for settings.yaml (ERRORS - blocking):**
 
 Validate that settings.yaml fields have correct types:
 - `career_check_threshold_days` must be a number (integer)
@@ -199,7 +211,7 @@ Stop here - do not proceed until type errors are fixed.
 
 ---
 
-**5.4 Cross-Reference Validation (WARNINGS - non-blocking):**
+**6.4 Cross-Reference Validation (WARNINGS - non-blocking):**
 
 For meeting-competencies.yaml only, check each `maps_to_role` reference:
 - Collect all role competency IDs from role-competencies.yaml
@@ -227,7 +239,7 @@ Collect all warnings and display them together, then CONTINUE with setup (do not
 
 ---
 
-**5.5 Validation Success:**
+**6.5 Validation Success:**
 
 If all ERRORS pass (YAML syntax, required fields, type validation), count competencies and display summary.
 
@@ -252,7 +264,7 @@ Configuration validated successfully!
 
 Note: This follows progressive disclosure - show only summary on success, no verbose output.
 
-### Step 5.6: Optional Integration Setup (Google Calendar)
+### Step 6.6: Optional Integration Setup (Google Calendar)
 
 Check if `integrations.calendar_mcp_offered` in settings.yaml is already `"skipped"`. If so, skip this step entirely.
 
@@ -273,13 +285,13 @@ Would you like to set this up now?
 ```
 
 Wait for user response:
-- If "n" or "no": Set `integrations.calendar_mcp_offered: true` in settings, continue to Step 6
-- If "skip": Set `integrations.calendar_mcp_offered: "skipped"` in settings, continue to Step 6
+- If "n" or "no": Set `integrations.calendar_mcp_offered: true` in settings, continue to Step 7
+- If "skip": Set `integrations.calendar_mcp_offered: "skipped"` in settings, continue to Step 7
 - If "y" or "yes": Proceed to calendar setup instructions below
 
 **If user chooses "y" for calendar setup:**
 
-**Step 5.6.1: Create Google Cloud OAuth Credentials**
+**Step 6.6.1: Create Google Cloud OAuth Credentials**
 
 Display:
 ```
@@ -315,10 +327,10 @@ Have you completed these steps and downloaded the credentials file? (y/n)
 ```
 
 Wait for user response:
-- If "n" or "no": Display "No problem! Complete these steps first, then run /setup-calendar when ready." Continue to Step 6.
-- If "y" or "yes": Proceed to Step 5.6.2
+- If "n" or "no": Display "No problem! Complete these steps first, then run /setup-calendar when ready." Continue to Step 7.
+- If "y" or "yes": Proceed to Step 6.6.2
 
-**Step 5.6.2: Get Credentials Path**
+**Step 6.6.2: Get Credentials Path**
 
 Display:
 ```
@@ -330,7 +342,7 @@ Enter the full path to your gcp-oauth.keys.json file:
 
 Wait for user to provide the path. Store it as `{credentials_path}`.
 
-**Step 5.6.3: Add MCP to Claude Code**
+**Step 6.6.3: Add MCP to Claude Code**
 
 Display:
 ```
@@ -353,10 +365,10 @@ Have you run the command? (y/n)
 ```
 
 Wait for user response:
-- If "n" or "no": Display "No problem! Run the command when ready, then run /setup-calendar to verify." Continue to Step 6.
+- If "n" or "no": Display "No problem! Run the command when ready, then run /setup-calendar to verify." Continue to Step 7.
 - If "y" or "yes": Proceed to verification instructions
 
-**Step 5.6.4: Verification Instructions**
+**Step 6.6.4: Verification Instructions**
 
 Display:
 ```
@@ -379,9 +391,9 @@ I'll mark calendar integration as pending verification.
 Set `integrations.calendar_mcp_configured: "pending"`
 Set `integrations.calendar_mcp_setup_date: {current ISO date}`
 
-Continue to Step 6.
+Continue to Step 7.
 
-### Step 6: Confirm and Save
+### Step 7: Confirm and Save
 
 Display what will be saved:
 ```
@@ -398,7 +410,7 @@ Wait for user response:
 - If "n" or "no": Display "Setup cancelled. No changes were made." and exit
 - If "y" or "yes": Proceed to save
 
-### Step 7: Update settings.yaml
+### Step 8: Update settings.yaml
 
 Update `config/settings.yaml` with:
 - `manager_name: "{user's name}"`
@@ -406,7 +418,7 @@ Update `config/settings.yaml` with:
 - `setup_complete: true`
 - Remove `setup_in_progress` if it exists (clear the partial state flag)
 
-### Step 8: Display Success and Next Steps
+### Step 9: Display Success and Next Steps
 
 Display:
 ```
