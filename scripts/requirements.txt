@@ -1,0 +1,14 @@
+# Python dependencies for SE Performance System scripts
+# Install with: pip install -r scripts/requirements.txt
+
+# HTTP client for Gong API calls
+requests>=2.28.0
+
+# Date parsing for transcript timestamps
+python-dateutil>=2.8
+
+# YAML parsing for configuration files
+pyyaml>=6.0
+
+# Note: Google Calendar integration now uses MCP (google-calendar-mcp)
+# See config/integrations/calendar.yaml for setup instructions

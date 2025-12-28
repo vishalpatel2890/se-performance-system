@@ -1,0 +1,61 @@
+# Gong Integration Configuration
+# API credentials must be set via environment variables
+# Never commit actual tokens to version control
+
+version: "1.0"
+
+# Authentication
+auth:
+  # Set this environment variable with your Gong API access token
+  access_token_env: "GONG_ACCESS_TOKEN"
+  # Set this environment variable with your Gong API key
+  api_key_env: "GONG_API_KEY"
+
+# API Settings
+api:
+  base_url: "https://api.gong.io/v2"
+  timeout_seconds: 30
+  rate_limit_per_minute: 60
+
+# Sync Settings
+sync:
+  # How far back to fetch transcripts on initial sync (days)
+  initial_lookback_days: 90
+  # How often to check for new transcripts (hours)
+  sync_interval_hours: 24
+  # Directory to store downloaded transcripts
+  transcript_output_dir: "data/transcripts"
+
+# Transcript Settings
+transcript:
+  # Include speaker labels in transcripts
+  include_speakers: true
+  # Include timestamps in transcripts
+  include_timestamps: true
+  # Filename format for transcripts
+  filename_format: "{date}-{customer}-{call_type}.md"
+
+# Call Filtering
+filters:
+  # Only sync calls with these participants (email patterns)
+  participant_patterns:
+    - "*@yourcompany.com"
+  # Minimum call duration to sync (minutes)
+  min_duration_minutes: 5
+  # Call types to sync
+  call_types:
+    - "external"
+    - "customer"
+
+# Field Mapping
+# Maps Gong fields to SE Performance System fields
+field_mapping:
+  customer_name: "primaryCompany.name"
+  call_date: "started"
+  call_type: "type"
+  participants: "participants"
+  duration: "duration"
+
+# Status
+enabled: false
+last_sync: null

@@ -1,0 +1,89 @@
+# =============================================================================
+# SE Performance System - .gitignore
+# =============================================================================
+# This project is designed to be cloned and used by others. Personal data and
+# development tooling are excluded while templates and commands are tracked.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# PERSONAL DATA (Never commit - contains sensitive SE/employee info)
+# -----------------------------------------------------------------------------
+
+# Actual team member folders (only _template is tracked)
+# Each SE gets their own folder with performance data
+team/*/
+!team/_template/
+
+# Data directories (transcripts, calendar, salesforce exports)
+data/
+
+# Generated outputs (reports, reviews)
+outputs/
+
+# -----------------------------------------------------------------------------
+# DEVELOPMENT TOOLING (Local dev only - not part of core system)
+# -----------------------------------------------------------------------------
+
+# BMAD framework (personal development methodology)
+.bmad/
+.claude/commands/bmad/
+
+# Development notes and sprint artifacts
+notes/
+
+# Nimbalyst local plans
+nimbalyst-local/
+
+# Generic dev tracking commands (keep SE-specific commands only)
+.claude/commands/plan.md
+.claude/commands/track.md
+.claude/commands/track-bug.md
+.claude/commands/track-idea.md
+.claude/commands/mockup.md
+
+# -----------------------------------------------------------------------------
+# CREDENTIALS & ENVIRONMENT
+# -----------------------------------------------------------------------------
+
+.env
+.env.local
+.env.*.local
+*.env
+
+.credentials/
+credentials.json
+*_credentials.json
+*_token.json
+
+# -----------------------------------------------------------------------------
+# IDE & EDITOR
+# -----------------------------------------------------------------------------
+
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Claude Code local settings (user-specific permissions)
+.claude/settings.local.json
+
+# -----------------------------------------------------------------------------
+# OS FILES
+# -----------------------------------------------------------------------------
+
+.DS_Store
+Thumbs.db
+
+# -----------------------------------------------------------------------------
+# PYTHON
+# -----------------------------------------------------------------------------
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/

@@ -1,0 +1,84 @@
+# SE Performance Management System - Global Settings
+# Edit this file to customize your installation
+
+version: "1.0"
+
+# Setup Status
+# Set to true after running /setup command
+setup_complete: false
+
+# Manager Information
+manager_name: ""
+team_name: ""
+
+# Review Settings
+default_review_period: "quarterly"
+review_periods:
+  - "monthly"
+  - "quarterly"
+  - "semi-annual"
+  - "annual"
+
+# Career Check Settings
+# Days without career-related feedback before flagging
+career_check_threshold_days: 30
+
+# 1:1 Settings
+default_1on1_frequency_days: 14
+1on1_lookback_weeks: 4
+
+# Feedback Settings
+feedback:
+  # Number of recent entries to show in summaries
+  recent_entry_count: 10
+  # Days to consider "recent" for pattern analysis
+  recent_days: 30
+  # Minimum feedback entries before generating trends
+  min_entries_for_trends: 3
+
+# Rating Settings
+rating:
+  # Rating scale (Four Stages of Competence)
+  scale_min: 1
+  scale_max: 4
+  scale_labels:
+    1: "Unconscious Incompetence (UI)"
+    2: "Conscious Incompetence (CI)"
+    3: "Conscious Competence (CC)"
+    4: "Unconscious Competence (UC)"
+
+# Display Settings
+display:
+  # Date format for display
+  date_format: "YYYY-MM-DD"
+  # Timezone for timestamps
+  timezone: "America/Los_Angeles"
+
+# Integration Defaults
+integrations:
+  gong_enabled: false
+  calendar_enabled: false           # Deprecated - use calendar_mcp_configured
+  salesforce_enabled: false
+  # MCP-based integrations
+  calendar_mcp_configured: false    # true after successful MCP setup via /setup-calendar
+  calendar_mcp_offered: false       # true if offered during /setup, "skipped" if user chose to never ask
+  calendar_mcp_setup_date: null     # ISO date when calendar MCP was configured
+
+# File Paths (relative to project root)
+paths:
+  team_dir: "team"
+  data_dir: "data"
+  output_dir: "outputs"
+  config_dir: "config"
+  template_dir: "config/templates"
+
+# Tags Configuration
+default_tags:
+  - "discovery"
+  - "demo"
+  - "poc"
+  - "negotiation"
+  - "executive"
+  - "technical"
+  - "training"
+  - "mentoring"

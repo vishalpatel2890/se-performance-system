@@ -1,0 +1,190 @@
+# Role Competencies Configuration
+# These competencies define overall SE performance dimensions
+# Aggregated from meeting observations over time
+# Rating Scale: Four Stages of Competence (1-4)
+
+version: "1.0"
+last_updated: "2025-12-22"
+
+competencies:
+  technical_credibility:
+    name: "Technical Credibility"
+    description: "Earning customer trust through demonstrated technical expertise and product knowledge"
+    key_behaviors:
+      - "Answers technical questions accurately and confidently"
+      - "Adapts technical depth to audience"
+      - "Demonstrates deep product knowledge"
+      - "Earns respect from customer technical teams"
+    level_examples:
+      1:
+        stage: "Unconscious Incompetence"
+        description: "Relies on generic responses; doesn't recognize knowledge gaps; loses technical audience trust"
+        example: "Says 'I'll get back to you' on basic questions; customer's technical team disengages"
+      2:
+        stage: "Conscious Incompetence"
+        description: "Recognizes when out of depth; over-relies on specialists; struggles with technical objections"
+        example: "Brings in architect for every technical question; knows they need to improve product knowledge"
+      3:
+        stage: "Conscious Competence"
+        description: "Handles most technical discussions confidently; knows when to bring in experts appropriately"
+        example: "Leads technical deep-dives; escalates truly complex edge cases with clear context"
+      4:
+        stage: "Unconscious Competence"
+        description: "Recognized as trusted technical advisor; customer seeks their opinion on architecture decisions"
+        example: "Customer says 'We want your input on our data strategy' before discussing product"
+
+  discovery_quality:
+    name: "Discovery Quality"
+    description: "Uncovering customer pain points and quantifying business impact effectively"
+    key_behaviors:
+      - "Asks probing questions beyond surface requirements"
+      - "Identifies and quantifies business impact"
+      - "Uncovers decision criteria and process"
+      - "Discovers competitive landscape"
+    level_examples:
+      1:
+        stage: "Unconscious Incompetence"
+        description: "Skips discovery or asks only surface questions; assumes they understand the customer's needs"
+        example: "Jumps to demo after hearing 'We need a CDP' without understanding why"
+      2:
+        stage: "Conscious Incompetence"
+        description: "Has discovery framework but struggles to adapt; often misses quantification"
+        example: "Asks good questions but doesn't follow up on 'We're losing customers' to understand the impact"
+      3:
+        stage: "Conscious Competence"
+        description: "Executes discovery framework well; regularly quantifies pain; surfaces key stakeholders"
+        example: "Calculates that customer pain equals $2M annual loss; identifies CTO as real decision maker"
+      4:
+        stage: "Unconscious Competence"
+        description: "Discovery feels like a strategic conversation; customer gains insights about their own situation"
+        example: "Customer says 'You've helped us think about this differently' after discovery call"
+
+  demo_excellence:
+    name: "Demo Excellence"
+    description: "Showcasing product value through tailored, compelling demonstrations"
+    key_behaviors:
+      - "Tailors demos to discovered customer needs"
+      - "Presents features as solutions to specific problems"
+      - "Handles demo objections smoothly"
+      - "Tells a compelling story, not a feature tour"
+    level_examples:
+      1:
+        stage: "Unconscious Incompetence"
+        description: "Generic demo regardless of customer; feature-focused rather than value-focused"
+        example: "Shows same demo to marketing VP that they showed to data engineers last week"
+      2:
+        stage: "Conscious Incompetence"
+        description: "Attempts customization but struggles with real-time adaptation; gets lost in features"
+        example: "Has customer-specific slides but reverts to standard flow when questions arise"
+      3:
+        stage: "Conscious Competence"
+        description: "Demos tell customer's story; handles curveballs; connects to discovered pain points"
+        example: "Pauses mid-demo to say 'This is exactly what you mentioned about X' and pivots accordingly"
+      4:
+        stage: "Unconscious Competence"
+        description: "Demo feels like solving customer's problem in real-time; customer is mentally using the product"
+        example: "Customer interrupts to ask 'Can we see how this would work with our specific data?'"
+
+  deal_influence:
+    name: "Deal Influence"
+    description: "Impact on deal progression, close rates, and customer decision-making"
+    key_behaviors:
+      - "Advances deals through technical validation"
+      - "Builds multi-threaded relationships"
+      - "Influences decision criteria in our favor"
+      - "Accelerates evaluation cycles"
+    level_examples:
+      1:
+        stage: "Unconscious Incompetence"
+        description: "Passive in deal strategy; waits for AE direction; doesn't recognize stalled deals"
+        example: "Deal stalls after demo but SE doesn't proactively suggest next steps"
+      2:
+        stage: "Conscious Incompetence"
+        description: "Understands their role in deals but struggles to influence direction"
+        example: "Knows they should multi-thread but keeps defaulting to one technical contact"
+      3:
+        stage: "Conscious Competence"
+        description: "Actively advances deals; identifies and addresses blockers; strategic with stakeholders"
+        example: "Suggests POC to overcome specific technical objection; owns execution"
+      4:
+        stage: "Unconscious Competence"
+        description: "Strategic deal partner; AE and customer rely on SE to navigate complex situations"
+        example: "Customer's CTO says 'Let me get your SE's input before we finalize requirements'"
+
+  commercial_acumen:
+    name: "Commercial Acumen"
+    description: "Understanding and articulating commercial value, pricing, and business justification"
+    key_behaviors:
+      - "Articulates ROI and business value"
+      - "Handles pricing discussions confidently"
+      - "Builds compelling business cases"
+      - "Understands customer's business context"
+    level_examples:
+      1:
+        stage: "Unconscious Incompetence"
+        description: "Avoids commercial discussions; focuses only on technical fit; defers all pricing to AE"
+        example: "When customer asks about pricing, says 'Let me have my AE get back to you on that'"
+      2:
+        stage: "Conscious Incompetence"
+        description: "Attempts value discussions but struggles to quantify; uncomfortable with pricing"
+        example: "Talks about 'better efficiency' but can't translate to dollars or specific metrics"
+      3:
+        stage: "Conscious Competence"
+        description: "Builds business cases with specific metrics; anchors to value before discussing price"
+        example: "Shows customer that solution delivers $500K annual savings before pricing comes up"
+      4:
+        stage: "Unconscious Competence"
+        description: "Trusted business advisor; helps customer build internal justification; pricing rarely an issue"
+        example: "Helps customer create board presentation that sells the investment internally"
+
+  cross_functional_impact:
+    name: "Cross-Functional Impact"
+    description: "Contributions beyond direct customer work: enablement, product feedback, mentorship"
+    key_behaviors:
+      - "Shares knowledge with team members"
+      - "Provides actionable product feedback"
+      - "Mentors junior SEs"
+      - "Improves team processes and content"
+    level_examples:
+      1:
+        stage: "Unconscious Incompetence"
+        description: "Focuses only on own accounts; doesn't share learnings; works in isolation"
+        example: "Develops great competitive positioning but doesn't share with team"
+      2:
+        stage: "Conscious Incompetence"
+        description: "Wants to contribute but struggles to find time or effective channels"
+        example: "Says 'I should document this' but never follows through"
+      3:
+        stage: "Conscious Competence"
+        description: "Regularly contributes enablement content; provides structured product feedback; helps teammates"
+        example: "Creates reusable demo script that becomes team standard; files detailed feature requests"
+      4:
+        stage: "Unconscious Competence"
+        description: "Natural force multiplier; team and product are measurably better because of their contributions"
+        example: "Junior SE says 'I wouldn't have closed that deal without your coaching'"
+
+  workload_management:
+    name: "Workload Management"
+    description: "Prioritization, work-life balance, and sustainable high performance"
+    key_behaviors:
+      - "Manages competing priorities effectively"
+      - "Maintains sustainable pace"
+      - "Communicates capacity proactively"
+      - "Knows when to say no or escalate"
+    level_examples:
+      1:
+        stage: "Unconscious Incompetence"
+        description: "Overcommits; shows signs of burnout; quality suffers across all accounts"
+        example: "Says yes to everything; works nights and weekends; starts missing prep time"
+      2:
+        stage: "Conscious Incompetence"
+        description: "Recognizes overload but struggles to prioritize or push back"
+        example: "Knows they have too much but keeps saying 'I'll figure it out'"
+      3:
+        stage: "Conscious Competence"
+        description: "Manages workload proactively; communicates capacity; maintains quality"
+        example: "Says 'I can take this but something has to come off my plate - let's discuss priority'"
+      4:
+        stage: "Unconscious Competence"
+        description: "Optimized and sustainable; high impact without burnout; helps others manage load"
+        example: "Consistently delivers high quality while maintaining boundaries; coaches team on prioritization"

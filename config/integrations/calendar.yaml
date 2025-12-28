@@ -1,0 +1,56 @@
+# Google Calendar Integration Configuration
+# Uses google-calendar-mcp for calendar operations
+# See: https://github.com/nspady/google-calendar-mcp
+
+version: "2.0"
+
+# MCP Configuration
+# The google-calendar-mcp handles OAuth authentication automatically
+# First-time setup will prompt for browser-based authentication
+mcp:
+  server: "google-calendar-mcp"
+  # Installation: npx -y @nspady/google-calendar-mcp
+  # Or add to Claude Code MCP settings
+  setup_url: "https://github.com/nspady/google-calendar-mcp"
+
+# Keywords to identify 1:1 meetings (case-insensitive)
+one_on_one_keywords:
+  - "1:1"
+  - "1on1"
+  - "check-in"
+  - "one on one"
+
+# Patterns to exclude - events with these keywords are internal meetings (case-insensitive)
+exclude_patterns:
+  - "team meeting"
+  - "all hands"
+  - "standup"
+  - "sprint"
+  - "planning"
+  - "retro"
+  - "sync"
+  - "internal"
+
+# Query Settings
+query:
+  # How far ahead to look for upcoming meetings (for /prep-1on1)
+  lookahead_days: 7
+  # How far back to look for past meetings (for /suggest-calls)
+  lookback_days: 7
+  # Maximum events to retrieve per query
+  max_results: 50
+
+# SE Matching
+# How to determine which SE an event belongs to
+se_matching:
+  # Match by attendee email domain (for your company)
+  email_patterns:
+    - "*@yourcompany.com"
+  # SE folder name extraction from email
+  # e.g., "john.doe@company.com" -> "john-doe"
+  name_extraction_pattern: "{first}-{last}"
+  # Fuzzy match tolerance (Levenshtein distance)
+  fuzzy_match_threshold: 2
+
+# Status
+enabled: true

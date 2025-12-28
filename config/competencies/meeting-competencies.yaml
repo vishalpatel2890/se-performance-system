@@ -1,0 +1,206 @@
+# Meeting Competencies Configuration
+# These competencies are evaluated during specific customer interactions
+# Each meeting competency maps to one or more role competencies
+# Rating Scale: Four Stages of Competence (1-4)
+
+version: "1.0"
+last_updated: "2025-12-22"
+
+competencies:
+  eli5:
+    name: "ELI5 (Explain Like I'm 5)"
+    description: "Ability to simplify complex technical concepts for non-technical audiences"
+    evidence_prompts:
+      - "Did the SE avoid jargon when speaking with non-technical stakeholders?"
+      - "Were analogies or relatable examples used to explain technical concepts?"
+      - "Did the customer demonstrate understanding after the explanation?"
+    level_examples:
+      1:
+        stage: "Unconscious Incompetence"
+        description: "Uses technical jargon without awareness; assumes audience understands technical terms"
+        example: "Explains API integration using developer terminology to a CMO without realizing the confusion"
+      2:
+        stage: "Conscious Incompetence"
+        description: "Recognizes when explanations are too technical but struggles to simplify"
+        example: "Notices customer confusion and tries to clarify but falls back into technical language"
+      3:
+        stage: "Conscious Competence"
+        description: "Deliberately uses analogies and simple language; checks for understanding"
+        example: "Compares identity resolution to 'connecting puzzle pieces' and asks 'Does that make sense?'"
+      4:
+        stage: "Unconscious Competence"
+        description: "Naturally adapts language to audience; seamlessly translates complex concepts"
+        example: "Effortlessly switches between technical depth with engineers and business value with executives"
+    maps_to_role:
+      - technical_credibility
+      - demo_excellence
+
+  checking_understanding:
+    name: "Checking Understanding"
+    description: "Proactively verifying customer comprehension throughout conversations"
+    evidence_prompts:
+      - "Did the SE pause to check if the customer was following along?"
+      - "Were clarifying questions asked before moving to the next topic?"
+      - "Did the SE adapt their approach based on customer responses?"
+    level_examples:
+      1:
+        stage: "Unconscious Incompetence"
+        description: "Presents without checking understanding; assumes silence means agreement"
+        example: "Delivers a 20-minute monologue without any check-in questions"
+      2:
+        stage: "Conscious Incompetence"
+        description: "Asks 'Any questions?' but doesn't wait for or probe responses"
+        example: "Says 'Does that make sense?' but continues before getting a real answer"
+      3:
+        stage: "Conscious Competence"
+        description: "Regularly pauses with specific check-in questions; adjusts based on responses"
+        example: "Asks 'How does this compare to your current approach?' and waits for substantive response"
+      4:
+        stage: "Unconscious Competence"
+        description: "Natural rhythm of present-check-adapt; reading room cues automatically"
+        example: "Notices slight confusion on customer's face, pauses, and rephrases before being asked"
+    maps_to_role:
+      - discovery_quality
+      - demo_excellence
+
+  dynamic_engagement:
+    name: "Dynamic Engagement"
+    description: "Keeping all meeting participants actively involved and engaged"
+    evidence_prompts:
+      - "Were multiple stakeholders addressed and included in the conversation?"
+      - "Did the SE notice and re-engage participants who seemed disengaged?"
+      - "Was the conversation balanced or dominated by one person?"
+    level_examples:
+      1:
+        stage: "Unconscious Incompetence"
+        description: "Focuses on one person; doesn't notice disengaged participants"
+        example: "Talks only to the technical lead while the business sponsor checks their phone"
+      2:
+        stage: "Conscious Incompetence"
+        description: "Tries to include others but struggles to maintain balanced engagement"
+        example: "Asks the quiet VP a question but then immediately returns to the IT director"
+      3:
+        stage: "Conscious Competence"
+        description: "Deliberately includes different stakeholders; redirects to get varied perspectives"
+        example: "Says 'Sarah, from a marketing perspective, how would this impact your team?'"
+      4:
+        stage: "Unconscious Competence"
+        description: "Natural facilitation; all parties feel heard without forced inclusion"
+        example: "Seamlessly weaves between technical and business discussion, drawing out each stakeholder"
+    maps_to_role:
+      - deal_influence
+      - discovery_quality
+
+  objection_handling:
+    name: "Objection Handling"
+    description: "Effectively addressing concerns, pushback, and skepticism"
+    evidence_prompts:
+      - "Did the SE acknowledge objections before responding?"
+      - "Were objections addressed with relevant evidence or examples?"
+      - "Did the resolution satisfy the customer or did the objection persist?"
+    level_examples:
+      1:
+        stage: "Unconscious Incompetence"
+        description: "Gets defensive or dismissive; doesn't recognize valid concerns"
+        example: "Responds to 'This seems expensive' with 'Well, quality isn't cheap'"
+      2:
+        stage: "Conscious Incompetence"
+        description: "Acknowledges objection but provides weak or generic response"
+        example: "Says 'I understand' but gives a canned response that doesn't address the specific concern"
+      3:
+        stage: "Conscious Competence"
+        description: "Uses structured approach: acknowledge, clarify, respond with evidence"
+        example: "Says 'That's a fair concern. Can you help me understand what specific aspect worries you?'"
+      4:
+        stage: "Unconscious Competence"
+        description: "Anticipates objections; addresses concerns before they're raised; turns skeptics into advocates"
+        example: "Preemptively addresses common concern with relevant case study that matches customer's situation"
+    maps_to_role:
+      - commercial_acumen
+      - deal_influence
+
+  competitive_positioning:
+    name: "Competitive Positioning"
+    description: "Effectively differentiating against competitors without negativity"
+    evidence_prompts:
+      - "Did the SE focus on unique value rather than attacking competitors?"
+      - "Were competitive differentiators tied to customer-specific needs?"
+      - "Did the positioning feel authentic rather than scripted?"
+    level_examples:
+      1:
+        stage: "Unconscious Incompetence"
+        description: "Bashes competitors; makes claims that can't be backed up"
+        example: "Says 'Their product is terrible' without providing specific differentiation"
+      2:
+        stage: "Conscious Incompetence"
+        description: "Avoids competitor discussion entirely or provides generic differentiators"
+        example: "Gives same three-point comparison regardless of what competitor is mentioned"
+      3:
+        stage: "Conscious Competence"
+        description: "Frames differentiators around customer needs; provides balanced perspective"
+        example: "Says 'For your use case, our approach is better because...' with specific evidence"
+      4:
+        stage: "Unconscious Competence"
+        description: "Confident, authentic positioning that acknowledges competitor strengths while highlighting true advantages"
+        example: "Naturally pivots from competitor comparison to value discussion: 'Let me show you what that means for your team'"
+    maps_to_role:
+      - technical_credibility
+      - commercial_acumen
+      - deal_influence
+
+  discovery_depth:
+    name: "Discovery Depth"
+    description: "Going beyond surface-level questions to uncover true business impact"
+    evidence_prompts:
+      - "Did the SE ask 'why' behind the initial requirements?"
+      - "Were business outcomes and metrics discussed, not just features?"
+      - "Did the SE quantify the pain or opportunity?"
+    level_examples:
+      1:
+        stage: "Unconscious Incompetence"
+        description: "Accepts requirements at face value; moves quickly to solution"
+        example: "Hears 'We need identity resolution' and immediately jumps to product demo"
+      2:
+        stage: "Conscious Incompetence"
+        description: "Asks some follow-up questions but misses the business impact"
+        example: "Asks about technical requirements but not about business outcomes"
+      3:
+        stage: "Conscious Competence"
+        description: "Uses structured discovery framework; connects technical needs to business value"
+        example: "Asks 'What would solving this mean for your Q4 revenue target?'"
+      4:
+        stage: "Unconscious Competence"
+        description: "Natural consultative approach; customer discovers insights they hadn't considered"
+        example: "Customer says 'Wow, I never thought about it that way' after SE's probing questions"
+    maps_to_role:
+      - discovery_quality
+      - commercial_acumen
+
+  demo_storytelling:
+    name: "Demo Storytelling"
+    description: "Presenting demos as compelling narratives rather than feature tours"
+    evidence_prompts:
+      - "Was the demo structured around a customer-relevant scenario?"
+      - "Did the SE connect features to previously discovered pain points?"
+      - "Was there a clear 'before and after' narrative?"
+    level_examples:
+      1:
+        stage: "Unconscious Incompetence"
+        description: "Feature-focused tour; clicking through screens without context"
+        example: "Shows every menu option and button without connecting to customer needs"
+      2:
+        stage: "Conscious Incompetence"
+        description: "Attempts story but falls back to feature explanation"
+        example: "Starts with customer scenario but gets lost in technical details mid-demo"
+      3:
+        stage: "Conscious Competence"
+        description: "Follows clear story arc; maps features to customer's stated problems"
+        example: "Says 'Remember when you mentioned X? Here's exactly how we solve that...'"
+      4:
+        stage: "Unconscious Competence"
+        description: "Demo feels like a conversation; customer sees their own success in the story"
+        example: "Customer says 'I can already see how we'd use this' without being prompted"
+    maps_to_role:
+      - demo_excellence
+      - technical_credibility
+      - deal_influence
