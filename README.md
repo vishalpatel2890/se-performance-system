@@ -13,7 +13,7 @@ An AI-native performance management system for Solution Engineering teams. Built
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/se-performance-system.git
+   git clone https://github.com/vishalpatel2890/se-performance-system.git
    cd se-performance-system
    ```
 
